@@ -20,7 +20,9 @@ export default{
     Cart,
 },
     setup(){
+        
         const store = useStore();
+
         return { store, }
     }
 }

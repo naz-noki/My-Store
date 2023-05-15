@@ -56,7 +56,9 @@
 import proceedToCheckout from '@/UI/proceedToCheckout.vue';
 
 import { useStore } from 'vuex';
-import { computed, ref, onMounted, watch, } from 'vue';
+import { computed, ComputedRef, ref, Ref, onMounted, watch, } from 'vue';
+
+import Iproduct from '@/mixins/Iproduct';
 
 export default{
     components:{
@@ -66,19 +68,11 @@ export default{
 
         const store = useStore();
 
-        const itogPrice:any = ref(0);
+        let itogPrice:Ref<number> = ref(0);
 
-        interface Iproduct {
-            name: string,
-            category: string,
-            price: number,
-            totalPrice: number,
-            quantity:number,
-        }
-
-        const ProductsInCart:any = computed(():Iproduct[]=>store.getters.getProductsInCart);
+        const ProductsInCart:ComputedRef<Iproduct[]> = computed(()=>store.getters.getProductsInCart);
     
-        const getItogPrice = () => {
+        const getItogPrice = ():void => {
             itogPrice.value = 0;
             for(let i = 0; i<ProductsInCart.value.length; i++){
                 let el = ProductsInCart.value[i];
@@ -86,27 +80,28 @@ export default{
             }
         }
 
-        const plusProduct = (idx:number) => {
+        const plusProduct = (idx:number):void => {
             let product:Iproduct = ProductsInCart.value[idx];
             if(product.quantity < 100){
                 product.quantity++;
-                product.totalPrice += product.price;
+                product.totalPrice += Math.floor(product.price);
             }
         }
 
-        const minusProduct = (idx:number) => {
+        const minusProduct = (idx:number):void => {
             let product:Iproduct = ProductsInCart.value[idx];
             if(product.quantity > 1){
                 product.quantity--;
-                product.totalPrice -= product.price;
+                product.totalPrice -= Math.floor(product.price);
             }
         }
 
-        const delProduct = (idx:number) => {
+        const delProduct = (idx:number):void => {
             ProductsInCart.value.splice(idx, 1);
         }
 
         onMounted(getItogPrice);
+        
         watch(ProductsInCart.value, getItogPrice);
 
         return { ProductsInCart, itogPrice, plusProduct, minusProduct, delProduct, }

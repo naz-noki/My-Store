@@ -18,27 +18,29 @@
 </template>
 
 <script lang="ts">
-import { ref, onMounted, computed, } from 'vue';
+import { ref, Ref, onMounted, computed, ComputedRef, } from 'vue';
 import { useStore } from 'vuex';
+
+import Iproduct from '@/mixins/Iproduct';
 
 export default{
     setup(){
 
         const store = useStore();
 
-        const link:any = computed(():string=>store.getters.getLink);
-        let Categories: any = ref([]);
-        let activeCategori:any = ref(0);
+        const link:ComputedRef<string> = computed(()=>store.getters.getLink);
+        let Categories:Ref<Iproduct[]> = ref([]);
+        let activeCategori:Ref<number> = ref(0);
 
-        const setCategori = (idx:number) => {
+        const setCategori = (idx:number):void => {
             activeCategori.value = idx;
             store.dispatch("actCategori", Categories.value[idx]);
             store.dispatch("actProductsList", []);
         }
 
-        const getCategories = async () => {
+        const getCategories = async ():Promise<void> => {
             const answer = await fetch(`${link.value}/categories`);
-            const data:string[] = await answer.json();
+            const data:Iproduct[] = await answer.json();
             Categories.value = data.length > 9 ? data.slice(0, 9) : data;
         }
 

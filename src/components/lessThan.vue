@@ -25,8 +25,10 @@ import seeMore from '@/UI/seeMore.vue';
 
 import showMoreProducts from '@/mixins/showMoreProducts';
 
-import { computed, ref, onMounted, } from 'vue';
+import { computed, ComputedRef, ref, Ref, onMounted, } from 'vue';
 import { useStore } from 'vuex';
+
+import Iproduct from '@/mixins/Iproduct';
 
 export default{
     components:{
@@ -36,27 +38,27 @@ export default{
         
         const store = useStore();
 
-        const Link:any  = computed(():string=>store.getters.getLink);
+        const Link:ComputedRef<string>  = computed(()=>store.getters.getLink);
 
-        const products:any = ref([]);
-        const seeMore:any = ref(true);
+        const products:Ref<Iproduct[]> = ref([]);
+        const seeMore:Ref<boolean> = ref(true);  
 
-        const getProductsFromCategory = async () => {
+        const getProductsFromCategory = async ():Promise<void> => {
             const answer:any = await fetch(`${Link.value}`);
-            const data:any[] = await answer.json();
-            products.value = data.reduce((acc,el)=>{
+            const data:Iproduct[] = await answer.json();
+            products.value = data.reduce((acc:Iproduct[], el:Iproduct)=>{
                 if(el.price <= 100) acc.push(el);
                 return acc;
             },[]);
         }
 
-        const setProduct = (idx:number) => {
+        const setProduct = (idx:number):void => {
             store.dispatch('actProductsList', [products.value[idx]]);
         }
 
         onMounted(getProductsFromCategory);
 
-        const getSeeMore = (newSeeMore:boolean) => seeMore.value = newSeeMore;
+        const getSeeMore = (newSeeMore:boolean):boolean => seeMore.value = newSeeMore;
 
         return {showMoreProducts, setProduct, getSeeMore,  products, seeMore, }
     },

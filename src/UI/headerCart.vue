@@ -9,16 +9,16 @@
 
 <script lang="ts">
 import { useStore } from 'vuex';
-import { computed, } from 'vue';
+import { computed, ComputedRef, } from 'vue';
 
 export default{
     setup() {
         
         const store = useStore();
 
-        const count:any = computed(():number=>store.getters.getProductsInCart.length);
+        const count:ComputedRef<number> = computed(()=>store.getters.getProductsInCart.length);
 
-        return { count }
+        return { count, }
     }
 }
 </script>

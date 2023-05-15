@@ -12,29 +12,32 @@
 </template>
 
 <script lang="ts">
-import { ref, onMounted, computed, } from 'vue';
+import { ref, Ref, onMounted, computed, ComputedRef, } from 'vue';
 import { useStore } from 'vuex';
 
 import setProduct from '../mixins/setProduct';
+
+import Iproduct from '@/mixins/Iproduct';
 
 export default{
     setup(){
 
         const store = useStore();
 
-        const link:any = computed(():string=>store.getters.getLink);
-        let Products: any = ref([]);
-        let productTitle: any = ref('');
+        const link:ComputedRef<string> = computed(()=>store.getters.getLink);
 
-        const setProducts = () => {
+        let Products:Ref<Iproduct[]> = ref([]);
+        let productTitle:Ref<string> = ref('');
+
+        const setProducts = ():void => {
             if(productTitle.value != ''){
                 store.dispatch('actProductsList', setProduct(Products.value, productTitle.value));
             }
         }
 
-        const getProducts = async () => {
-            const answer = await fetch(`${link.value}`);
-            const data:string[] = await answer.json();
+        const getProducts = async ():Promise<void> => {
+            const answer:any = await fetch(`${link.value}`);
+            const data:Iproduct[] = await answer.json();
             Products.value = data;
         }
 

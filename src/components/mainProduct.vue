@@ -29,30 +29,32 @@
 </template>
 
 <script lang="ts">
-import { ref, computed, onMounted, watch, } from 'vue';
+import { ref, Ref, computed, ComputedRef, onMounted, watch, } from 'vue';
 import { useStore } from 'vuex';
+
+import Iproduct from '@/mixins/Iproduct';
 
 export default{
     setup() {
         
         const store = useStore();
 
-        const Link:any  = computed(():string=>store.getters.getLink);
-        const Categori:any  = computed(():string=>store.getters.getCategori);
-        const ProductsList:any = computed(():string[]=>store.getters.getProductsList);
-        const ProductsInCart:any = computed(():any[]=>store.getters.getProductsInCart);
+        const Link:ComputedRef<string>  = computed(()=>store.getters.getLink);
+        const Categori:ComputedRef<string>  = computed(()=>store.getters.getCategori);
+        const ProductsList:ComputedRef<Iproduct[]> = computed(()=>store.getters.getProductsList);
+        const ProductsInCart:ComputedRef<Iproduct[]> = computed(()=>store.getters.getProductsInCart);
         
-        const product:any = ref({});
+        const product:Ref<Iproduct> = ref({}) as Ref<Iproduct>;
 
-        const getProductsFromCategory = async () => {
+        const getProductsFromCategory = async ():Promise<void> => {
             const answer:any = await fetch(`${Link.value}category/${Categori.value}`);
-            const data:string[] = await answer.json();
+            const data:Iproduct[] = await answer.json();
             product.value = data[0];
             product.value['rate'] = product.value.rating.rate;
             product.value['count'] = product.value.rating.count;
         }
 
-        const getProducts = () => {
+        const getProducts = ():void => {
             if(ProductsList.value.length > 0) {
                 product.value = ProductsList.value[0];
                 product.value['rate'] = ProductsList.value[0].rating.rate;
@@ -61,16 +63,16 @@ export default{
             else getProductsFromCategory();
         }
 
-        const AddToCart = () => {
+        const AddToCart = ():void => {
             product.value.totalPrice = product.value.price;
             product.value.quantity = 1;
             ProductsInCart.value.push(product.value);
         }
 
-        const toBasket = () => {
+        const toBasket = ():void => {
             let check:boolean = false;
             for(let i = 0; i<ProductsInCart.value.length; i++){
-                let cur = ProductsInCart.value[i];
+                let cur:Iproduct = ProductsInCart.value[i];
                 if(cur.id === product.value.id){
                     product.value.totalPrice += product.value.price;
                     product.value.quantity++;

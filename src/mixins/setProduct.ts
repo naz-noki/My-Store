@@ -1,11 +1,4 @@
-interface Iproduct {
-    category: string,
-    description: string,
-    id: number,
-    image: string,
-    price: number,
-    title: string,
-}
+import Iproduct from "./Iproduct";
 
 const setProduct = (Products: Iproduct[], productTitle:string):Iproduct[] => {
     const newProductsList:Iproduct[] = [];
