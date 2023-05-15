@@ -1,0 +1,94 @@
+.banner{
+    width: 1234px;
+    height: 570px;
+    margin: 30px auto;
+    display: flex;  
+    align-items: center;
+    border-radius: 6px;
+    background: #191919;
+    .banner__contOne{
+        width: 637px;
+        height: 570px;
+        .banner__contOne_title{
+            width: max-content;
+            height: 85px;
+            padding-top: 74px;
+            margin: 0 auto;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 70px;
+            line-height: 85px;
+            text-align: center;
+            color: #6C3EB8;            
+        }
+        .banner__contOne_text{
+            width: max-content;
+            height: 183px;
+            margin: 0 auto;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 150px;
+            line-height: 183px;
+            text-align: center;
+            color: #6C3EB8;
+        }
+        .banner__contOne_firstIMGblock{
+            width: max-content;
+            height: max-content;
+            position: absolute;
+            margin-top: -100px;
+            margin-left: -50px;
+            .banner__contOne_firstIMG{
+                width: 204px;
+                height: 170px;
+            }
+        }
+        .banner__contOne_secondIMGblock{
+            width: max-content;
+            height: max-content;
+            position: absolute;
+            margin-top: 115px;
+            margin-left: 390px;
+            .banner__contOne_secondIMG{
+                width: 269px;
+                height: 151px;
+            }
+        }
+        .banner__contOne_thirdIMGblock{
+            width: max-content;
+            height: max-content;
+            position: absolute;
+            margin-top: -50px;
+            margin-left: 50px;
+            .banner__contOne_thirdIMG{
+                width: 362px;
+                height: 259px;
+            }
+        }
+    } 
+    .banner__contTwo{
+        width: 637px;
+        height: 570px;
+        border-radius: 0 6px 6px 0;
+        background-image: url(../img/banner__contTwo.jpg);
+        .banner__contTwo_text{
+            width: max-content;
+            height: 24px;
+            margin: 0 auto;
+            padding-top: 522px;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 24px;
+            text-align: center;
+            color: #212123;      
+            span {
+                color: #6C3EB8;
+                font-weight: bold;
+            }      
+        }
+    }
+}

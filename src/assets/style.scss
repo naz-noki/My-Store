@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@500;600;700&display=swap');
+@import url(./header/header.scss);
+@import url(./categories/categoriesList.scss);
+@import url(./mainProduct/mainProduct.scss);
+@import url(./productsList/productsList.scss);
+@import url(./banner/banner.scss);
+@import url(./footer/footer.scss);
+@import url(./cart/cart.scss);
+
+*{
+    padding: 0;
+    margin: 0;
+    body{
+        max-width: 100%;
+        min-height: 100%;
+        background: #212123;
+        .wrapper{
+            max-width: 1234px;
+            margin: 0 auto;
+        }
+    }
+}

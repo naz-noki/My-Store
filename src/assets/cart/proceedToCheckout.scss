@@ -1,0 +1,21 @@
+.proceedToCheckout{
+    cursor: pointer;
+    width: 212px;
+    height: 38px;
+    background: #6C3EB8;
+    border-radius: 6px;    
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: #FFFFFF;    
+    transition: 200ms;
+    border: 1px solid #6C3EB8;
+}
+.proceedToCheckout:hover{
+    background: transparent;
+    border: none;
+    color: #6C3EB8;
+    transition: 125ms;
+}

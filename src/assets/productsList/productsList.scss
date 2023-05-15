@@ -1,0 +1,93 @@
+@import url(./seeMore.scss);
+
+.productsList{
+    width: 1234px;
+    min-height: 378px;
+    margin: 20px auto;
+    background: #191919;
+    border-radius: 6px;
+    .productsList__title{
+        width: max-content;
+        height: max-content;
+        margin: 0 auto;
+        padding-top:  25px;
+        padding-bottom: 4px;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 24px;
+        color: #FFFFFF;
+    }
+    .productsList__ul{
+        width: 1234px;
+        min-height: 220px;
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        .productsList__li{
+            cursor: pointer;
+            width: 230px;
+            height: 220px;
+            margin-top: 20px;
+            background-color: #212123;
+            border-radius: 8px;
+            .productsList__li_imgBlock{
+                width: 230px;
+                height: 110px;
+                background-color: #fff;
+                border-radius: 8px 8px 0px 0px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .productsList__li_img{
+                    width: 150px;
+                    height: 110px;
+                }
+            }
+            .productsList__li_title{
+                width: 200px;
+                height: 18px;
+                overflow: hidden;
+                margin-top: 12px;
+                margin-left: 12px;
+                font-family: 'Montserrat';
+                font-style: normal;
+                font-weight: 600;
+                font-size: 15px;
+                line-height: 18px;
+                color: #FFFFFF;                
+            }
+            .productsList__li_category{
+                width: max-content;
+                height: max-content;
+                margin-top: 5px;
+                margin-left: 12px;
+                font-family: 'Montserrat';
+                font-style: normal;
+                font-weight: 500;
+                font-size: 12px;
+                line-height: 15px;
+                color: #B8B8B8;                
+            }
+            .productsList__li_price{
+                width: max-content;
+                height: max-content;
+                margin-top: 28px;
+                margin-left: 12px;
+                font-family: 'Montserrat';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 20px;
+                line-height: 24px;
+                color: #6C3EB8;
+            }
+            transition: 200ms;
+        }   .productsList__li:hover{
+                margin: 10px 0;    
+                transition: 150ms;        
+            }
+    }
+}

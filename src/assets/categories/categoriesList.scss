@@ -1,0 +1,61 @@
+.categoriesList{
+    width: 304px;
+    height: 375px;
+    background: #191919;
+    border-radius: 9px;
+    padding: 25px;
+    .categoriesList__title{
+        width: max-content;
+        height: 20px;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 19px;
+        line-height: 20px;
+        color: #FFFFFF;        
+    }   
+    .categoriesList__listItems{
+        width: 107px;
+        height: 197px;
+        margin-top: 32px;
+        list-style-type: none;
+        .categoriesList__listItem{
+            cursor: pointer;
+            width: max-content;
+            height: 17px;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 17px;
+            line-height: 17px;
+            color: #576067;   
+            text-transform: capitalize;   
+            transition: 200ms;
+        }   .categoriesList__listItem:not(:first-child){margin-top: 20px;}
+        .categoriesList__listItem:hover{
+            color: #8B57C6;
+            transition: 200ms;
+        }
+        .categoriesList__listItemActive{
+            color: #8B57C6;
+            font-weight: bold;
+        }
+    } 
+    .categoriesList__footer{
+        width: 300px;
+        height: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 130px;
+        .categoriesList__footer_link{
+            text-decoration-color: transparent;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 15px;
+            color: #576067;            
+        }   .categoriesList__footer_link:hover{text-decoration-color: #576067;}
+    }
+}

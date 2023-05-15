@@ -1,0 +1,100 @@
+@import url(./addToCart.scss);
+
+.mainProduct{
+    width: 840px;  
+    height: 425px;
+    background: #191919;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    .mainProduct__block_img{
+        width: 380px;
+        height: 380px;
+        background-color: #fff;        
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .mainProduct__img{
+            width: 250px;
+            height: 250px;
+        }
+    }
+    .mainProduct__block_info{
+        width: 386px;
+        height: 375px;
+        .mainProduct__info_title{
+            width: 300px;
+            height: max-content;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 22px;
+            color: #F6F6F7;            
+        }
+        .mainProduct__info_price{
+            width: max-content;
+            height: max-content;
+            margin-top: 10px;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 24px;
+            color: #F6F6F7;            
+        }
+        .mainProduct__info_category{
+            width: max-content;
+            height: max-content;
+            margin-top: 20px;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 17px;
+            color: #576067;            
+        }
+        .mainProduct__info_rating{
+            width: 155px;
+            height: max-content;
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .mainProduct__info_rait{
+                min-width: 65px;
+                height: max-content;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                font-family: 'Montserrat';
+                font-style: normal;
+                font-weight: 500;
+                font-size: 17px;
+                line-height: 17px;
+                color: #F6F6F7;
+                .mainProduct__info_rait_img{
+                    padding: 5px;
+                    width: 20px;
+                    height: 20px;
+                    background: #6C3EB8;
+                    border-radius: 6px;
+                }
+            }
+        }
+        .mainProduct__info_description{
+            width: 340px;
+            max-height: 145px;
+            overflow: hidden;
+            margin: 16px 0;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 15px;
+            color: #B8B8B8;
+        }
+    }
+}

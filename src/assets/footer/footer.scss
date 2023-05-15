@@ -1,0 +1,41 @@
+.footer{
+    width: 1234px;
+    height: 73px;
+    margin: 19px auto;
+    background: #191919;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .footer__logo{
+        width: max-content;
+        height: max-content;
+        margin-left: 24px;
+        .footer__logo_img{
+            width: 61px;
+            height: 25px;
+        }
+    }
+    .footer__text{
+        width: max-content;
+        height: 15px;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 15px;
+        color: #576067;        
+        span{
+            color: #6C3EB8;
+        }
+    }
+    .footer__link{
+        width: max-content;
+        height: max-content;
+        margin-right: 24px;
+        .footer__link_icon{
+            width: 23px;
+            height: 23px;
+        }
+    }
+}

@@ -1,0 +1,11 @@
+@import url(./headerSearch.scss);
+@import url(./headerCart.scss);
+
+.header{
+    width: 1234px;
+    height: 36px;
+    margin: 21px auto;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+}

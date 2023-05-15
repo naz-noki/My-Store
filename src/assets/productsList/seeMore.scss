@@ -1,0 +1,43 @@
+.SeeMore__btn{
+    width: 119px;
+    height: 38px;
+    cursor: pointer;
+    margin: 23px 0;
+    margin-left: calc((1234px - 119px)/2);
+    background: #6C3EB8;
+    border-radius: 6px;
+    border: 1px solid #6C3EB8;    
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: #FFFFFF;   
+    transition: 200ms; 
+}
+.SeeMore__btn:hover{
+    background: transparent;
+    border: none;
+    color: #6C3EB8;
+    transition: 125ms;
+}
+.ShowLess__btn{
+    width: 119px;
+    height: 38px;
+    cursor: pointer;
+    margin: 23px 0;
+    margin-left: calc((1234px - 119px)/2);
+    background: transparent;
+    border: none;    
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: #6C3EB8; 
+    transition: 200ms; 
+}
+.ShowLess__btn:hover{
+    color: #FFFFFF;  
+    transition: 125ms;
+}
