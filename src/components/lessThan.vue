@@ -8,12 +8,7 @@
             :key="idx"
             class="productsList__li"
             >
-                <div class="productsList__li_imgBlock">
-                    <img :src="product.image" alt="" class="productsList__li_img">
-                </div>
-                <div class="productsList__li_title">{{product.title}}</div>
-                <div class="productsList__li_category">{{product.category}}</div>
-                <div class="productsList__li_price">{{product.price}}$</div>
+                <ProductApp :product="product"/>
             </li>
         </ul>
         <seeMore v-if="products.length > 5" @moreProducts="getSeeMore" />
@@ -21,18 +16,20 @@
 </template>
 
 <script lang="ts">
-import seeMore from '@/UI/seeMore.vue';
+import seeMore from "../UI/seeMore.vue";
 
-import showMoreProducts from '@/mixins/showMoreProducts';
+import showMoreProducts from '../mixins/showMoreProducts';
+import ProductApp from './ProductApp.vue';
 
 import { computed, ComputedRef, ref, Ref, onMounted, } from 'vue';
 import { useStore } from 'vuex';
 
-import Iproduct from '@/mixins/Iproduct';
+import Iproduct from '../mixins/Iproduct';
 
 export default{
     components:{
         seeMore,
+        ProductApp,
     },
     setup() {
         

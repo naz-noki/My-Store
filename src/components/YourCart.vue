@@ -53,12 +53,12 @@
 </template>
 
 <script lang="ts">
-import proceedToCheckout from '@/UI/proceedToCheckout.vue';
+import proceedToCheckout from '../UI/proceedToCheckout.vue';
 
 import { useStore } from 'vuex';
 import { computed, ComputedRef, ref, Ref, onMounted, watch, } from 'vue';
 
-import Iproduct from '@/mixins/Iproduct';
+import Iproduct from '../mixins/Iproduct';
 
 export default{
     components:{
